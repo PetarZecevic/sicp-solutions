@@ -1,0 +1,10 @@
+#lang racket
+(define (square x) (* x x))
+(define (square-sum x y)
+  (+ (square x) (square y)))
+(define (<= x y)
+  (not (> x y)))
+(define (sum-squares-larger-two x y z)
+  (cond ((and (<= x y) (<= x z)) (square-sum y z))
+        ((and (<= y x) (<= y z)) (square-sum x z))
+        (else (square-sum x y))))
